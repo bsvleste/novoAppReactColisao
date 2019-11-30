@@ -6,6 +6,8 @@ import Chip from './Chip';
 
 export default function MostraBid() {
     const [bid, setBid] = useState([]);
+    const local = 'http://localhost:3001';
+    const remoto = 'https://backendcolisao.herokuapp.com';
 
     useEffect(() => {
         function subriscrebleToEvents() {
@@ -15,7 +17,7 @@ export default function MostraBid() {
 
             //const  io = socket('https://backendcolisao.herokuapp.com', config);
             //const io = socket('http://10.60.16.153:3001', config);
-            const io = socket('http://localhost:3001', config);
+            const io = socket(remoto, config);
             io.on('bid', data => {
                 setBid(data);
             });

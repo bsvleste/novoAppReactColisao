@@ -15,7 +15,8 @@ export default function Modal() {
     const [jogos, setJogos] = useState([]);
     const [editarJogo, setEditarJogo] = useState();
     const [is_Adm, useIsAdm] = useState('');
-
+    const local = 'http://localhost:3001';
+    const remoto = 'https://backendcolisao.herokuapp.com';
 
     useEffect(() => {
         const { isAdm } = JSON.parse(localStorage.getItem('usuario'));
@@ -29,7 +30,7 @@ export default function Modal() {
             }
             //const io = socket('https://backendcolisao.herokuapp.com', config);
             //const io = socket('http://10.60.16.153:3001', config);
-            const io = socket('http://localhost:3001', config);
+            const io = socket(remoto, config);
             io.on('placar', data => {
                 setJogos(data);
             });

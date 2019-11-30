@@ -11,6 +11,8 @@ import useGlobalBid from './store/useGlobalBid';
 export default function Bid() {
     const [contagem, setContagem] = useState([]);
     const store = useGlobalBid();
+    const local = 'http://localhost:3001';
+    const remoto = 'https://backendcolisao.herokuapp.com';
 
     useEffect(() => {
         async function getContagem() {
@@ -27,7 +29,7 @@ export default function Bid() {
 
             //const  io = socket('https://backendcolisao.herokuapp.com', config);
             //const io = socket('http://10.60.16.153:3001', config);
-            const io = socket('http://localhost:3001', config);
+            const io = socket(remoto, config);
             io.on('contagem', data => {
                 setContagem(data);
             });
