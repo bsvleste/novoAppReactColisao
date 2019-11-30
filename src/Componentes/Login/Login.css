@@ -1,0 +1,59 @@
+label, h1{
+  color:#FEFE34;
+}
+
+.login-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-wrapper form {
+  margin: 20px 0 0;
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.login-wrapper label {
+  margin: 20px 0 0;
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.login-wrapper form input {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: 44px;
+  padding: 0 15px;
+  font-size: 14px;
+}
+
+.login-wrapper form button {
+  margin: 10px 0 0;
+  background: #FEFE34;
+  border-radius: 5px;
+  height: 44px;
+  border: 0;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.login-wrapper form button:hover {
+  background: #FEFE34;
+}
+.linkJogador{
+  color:#FEFE34;
+  margin-top: 30px;
+  align-self: right;
+}

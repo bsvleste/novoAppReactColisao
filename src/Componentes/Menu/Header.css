@@ -1,0 +1,46 @@
+
+.scrollMenu
+{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #15171b;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height: 40px;
+}
+
+.navLink 
+{
+  display: inline-block;
+  color: #ffce54;
+  text-align: center;
+  text-decoration: none;
+  padding: 3px;
+  width: 120px;
+  height: 40px;
+}
+.navLink p{
+  font-size: calc(10px + 2vmin);
+  position: relative;
+  top:-5px;
+}
+.navLink:active 
+{
+  color: #15171b;
+}
+.active{
+  background-color: #ffce54;
+  color: #15171b;
+
+}
+.navLink:hover
+{
+  color:#15171b; 
+  background-color: #ffce54;
+}
+
+.img{
+    width: 50px;
+}

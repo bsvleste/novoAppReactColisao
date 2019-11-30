@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "firebase-react-deploy": "appcolisao",
+    "default": "appcolisao"
+  }
+}

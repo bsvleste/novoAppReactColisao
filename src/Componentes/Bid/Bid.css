@@ -1,0 +1,294 @@
+/*fudo do app*/
+
+/*div onde fica o botao para iniciar o cadastro da bid*/
+
+.teste{
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.closeMenu{
+  background-color: #ffce54;
+  height: 45px;
+}
+/*span de dentro do menu*/
+.closeMenu>span
+{
+  float: right;
+  cursor: pointer;
+}
+/*alinha REsposta*/
+.alinhaResposta
+{
+  padding: 0.6em;/*15/90*/
+}
+.central
+{
+  float: right;
+  margin-right: .2222em;/*20/90*/
+  margin-top: 0.8em ;/*5/90*/
+}
+.iconesBid{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+/*check*/
+.check
+{
+  color: #11FF00;
+}
+.DontCheck
+{
+  color: red;
+
+}
+.dm
+{
+  color:orange;
+}
+/*div onde sera mostrado os jogadores cadastrado no bid*/
+
+/*margem da div de dentro da div.bid*/
+.bid{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cadastroUsuario
+{
+  position: fixed;
+  margin-top: 250px;
+  height: auto;
+  width: 80%;
+  z-index: 10;
+  background-color: #ecf0f1;
+}
+.cadastroUsuario > span
+{
+  cursor: pointer;
+}
+.scroll{
+  margin-top: 40px;
+}
+/*botao para registrar o usuario no bid*/
+.btn-registro
+{
+  z-index: 10;
+  position: fixed;
+  left: 80%;
+  bottom: 20%;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #ffce54;
+  border: 1px solid #ffce54;
+  
+  box-shadow: 2px 1px  rgba(203, 248, 3, 0.3)
+}
+/*muda a cor do btn-primary*/
+.btn-warning
+{
+  background-color: #ffce54;
+  border-color: #ffce54;
+}
+
+/*deixa o botao do bootstrap 100%*/
+.btn-lg
+{
+  width: 100%;
+}
+/*fundo do form*/
+.formulario
+{
+  background-color: white;
+  width: 80%;
+  height: 100%;
+  z-index: 10;
+  position: absolute;
+  top:200px;
+}
+/*span dentro do form*/
+.formulario > span
+{
+  cursor: pointer;
+}
+/*cadastro do usuario*/
+
+/*resultado do bid*/
+.resultado
+{
+  margin-top:80px;
+  height: 40px;
+  background:whitesmoke;
+  z-index: 1;
+  padding: 6px;
+}
+/* fundo do slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-left: 80px;
+}
+/*esconde o chekbox*/
+.switch input {display:none;}
+
+/* O slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #ffce54;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ffce54;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* On mouse-over, add a grey background color */
+/*.switch:hover input ~ .slider {
+    background-color: #ccc;
+}
+/* When the radio button is checked, add a blue background */
+/*.switch input:checked ~ .slider {
+    background-color: #2196F3;
+}*/
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.slider:after {
+  position: absolute;
+  content: "";
+  height: 206px;
+  width: 206px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.switch input:checked ~ .slider:after {
+    transform: translateX(26px);
+}
+
+/* Style the indicator (dot/circle) */
+.switch .slider:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+/*esconde o chekbox*/
+.switch input {display:none;}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 180px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.chip{
+  display: flex;
+  height: 80px;
+  font-size: 16px;
+  box-shadow: 5px 10px 8px #0025;
+  color:whitesmoke;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.iconesBid p{
+  font-size: 30px;
+  padding: 35px;
+}
+
+
+/*
+@media (max-height: 515px)
+{
+  .btn-registro
+  {
+    width: 50px;
+    height: 50px;
+  }
+  div.scrollMenu a
+  {
+    width: 120px;
+    height: 70px;
+  }
+ .scroll{
+    height: 40%;
+     bottom: 8%;
+ }
+  
+}
+@media (max-height: 640px)
+{
+  .scroll{
+    height: 40%;
+     bottom: 12%;
+ }
+  
+}*/
+
+/*
+@media (min-width: 800px)
+{
+  .cadastroUsuario
+  {
+    width: 70%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-right: -50%; 
+    transform: translate(-50%, -50%);
+    
+  }
+}*/

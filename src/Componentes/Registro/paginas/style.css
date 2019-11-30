@@ -1,0 +1,133 @@
+
+.con{
+    margin-top: 80px;
+}
+
+.body{
+    background: blue;
+}
+.container-registro{
+    max-width: 860px;
+    margin: 0 auto;
+}
+.btn-salvar{
+    width : 95vw;
+    height: 50px;
+    border-radius: 5px;
+    padding: 15px 0 15px 0;
+    font:bold 18px Roboto;
+}
+.marginBotao{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.fotoPerfil{
+    width: 18%;
+    height: 85px;
+}
+.fundo{
+    width: 80%;
+    float: right;
+    position: relative;
+}
+/*registro dos jogadores*/
+.botoesRegistro{
+    width:80%;
+    display: flex;
+    float: right;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 1%;
+}
+.chuteagol{
+    flex: 1;
+    margin-top: 5px;
+}
+
+.gol{
+    flex: 1;
+    margin-top: 5px;
+}
+.assistencia{
+    flex: 1;
+    margin-top: 5px;
+}
+.faltascometidas{
+    flex: 1;
+    margin-top: 5px;
+}
+.faltassofridas{
+    flex: 1;
+    margin-top: 5px;
+}
+.desarmes { 
+    flex: 1;
+    margin-top: 5px;
+}
+
+
+.btn-chuteagol{
+    display: block;
+    background-color: #4ec8af;	
+}
+.btn-gol{
+    display: block;
+    background-color: #60ade0;
+}
+.btn-faltassofridas{
+    display: block;
+    background-color:#e54d42;
+}
+.btn-faltascometidas{
+    display: block;
+    width: 52px;
+    background-color: #39ca74;
+}
+.btn-desarmes{
+    display: block;
+    background-color: #f0c330;
+}
+.btn-assistencia{
+    display: block;
+    background-color: #ae7cc2;
+}
+.tamanho{
+    width: 85%;
+}
+@media screen and (min-width:479px) {
+    .fotoPerfil{
+        width: 13%;
+        position: relative;
+        left:5%; 
+    }
+ }
+ 
+ @media screen and (min-width:600px) { 
+    .fotoPerfil{
+        width: 10%;
+        position: relative;
+        left:7%; 
+    }
+}
+ @media screen and (min-width:760px) { 
+    .fotoPerfil{
+        width: 8%;
+        position: relative;
+        left:10%; 
+    }
+ }
+@media screen and (min-width:860px) {
+	.fotoPerfil{
+        width: 8%;
+        position: relative;
+        left:8%; 
+    }
+    .btn-salvar{
+        width: 20vw;
+    }
+    .marginBotao{
+        justify-content: flex-start;
+    }
+ }
