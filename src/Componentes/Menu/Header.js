@@ -11,7 +11,7 @@ const Header = (auth) => (
             className="navLink"
             to="/home">
             <div >
-                <p>HOME</p>
+                <p>HOME novo Branche</p>
             </div>
         </NavLink>
         <NavLink
