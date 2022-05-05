@@ -23,19 +23,23 @@ export default function FormularioBid() {
             'Authorization': "Bearer " + localStorage.getItem('token')
         }
        
-        let bidDataSend = {
-            bidData: {
+        let bidDataSend = {           
                 bid: respostaBid,
-                usuario: _id,
-            }
+                usuario: _id,          
         }
-
-        await Api.post('/bid/addBid', bidDataSend, { headers: header }).then(() => {
-
+        await Api.post('bid/addBid', bidDataSend, { headers: header }).then(() => {
         });
+        setTimeout(modalEstado,200)
     }
     function setRespostaBid(e) {
-        useRespostaBid(e.target.value);
+        let resp = 0;
+        if(e.target.value === "sim"){
+        resp = 1;            
+        }else{
+            resp = 0
+        }
+     
+        useRespostaBid(resp);
     }
     return (
         <>
@@ -49,14 +53,14 @@ export default function FormularioBid() {
                     <Check className="form-group">
                         <IconCheck check>SIM</IconCheck>
                         <label className="switch">
-                            <input type="radio" name="radio" id="check" value="check" onChange={setRespostaBid} />
+                            <input type="radio" name="radio" id="check" value="sim" onChange={setRespostaBid} />
                             <span className="slider round"></span>
                         </label>
                     </Check>
                     <Dont className="form-group">
                         <IconCheck>NÃO</IconCheck>
                         <label className="switch">
-                            <input type="radio" name="radio" value="dont" onChange={setRespostaBid} />
+                            <input type="radio" name="radio" value="nao" onChange={setRespostaBid} />
                             <span className="slider round"></span>
                         </label>
                     </Dont>

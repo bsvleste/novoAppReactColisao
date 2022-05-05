@@ -56,13 +56,14 @@ export const LabelFile = styled.label`
 `;
 
 export const LoginLabel = styled.label`
-    margin-top: 20px;
+    
+   /*  margin-top: 20px;
     width: 100%;
     max-width: 280px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    color:${cores.amareloFlat}
+    color:${cores.amareloFlat} */
 `;
 
 export const LinkLogin  =styled.a`

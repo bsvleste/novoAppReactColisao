@@ -6,10 +6,23 @@ import Chip from './Chip';
 
 export default function MostraBid() {
     const [bid, setBid] = useState([]);
-    const local = 'http://localhost:3001';
+    const local = 'http://192.168.15.72:3333';
     const remoto = 'https://backendcolisao.herokuapp.com';
 
     useEffect(() => {
+        async function deletaBidRealTime() {
+            let config = {
+                headers: { 'Authorization': "Bearer " + localStorage.getItem('isAdm') }
+            }
+
+            //const  io = socket('https://backendcolisao.herokuapp.com', config);
+            //const io = socket('http://10.60.16.153:3001', config);
+            const io = socket(remoto, config);
+            io.on('deletaBid', data => {
+                
+                setBid(data);
+            });
+        }
         function subriscrebleToEvents() {
             let config = {
                 headers: { 'Authorization': "Bearer " + localStorage.getItem('token') }
@@ -23,6 +36,7 @@ export default function MostraBid() {
             });
         }
         subriscrebleToEvents();
+        deletaBidRealTime();
     }, []);
 
     useEffect(() => {
@@ -31,7 +45,7 @@ export default function MostraBid() {
                 headers: { 'Authorization': "Bearer " + localStorage.getItem('token') }
             }
             try {
-                await Api.get('/bid', config).then((results) => {
+                await Api.get('bid/', config).then((results) => {
                     setBid(results.data);
                 })
             } catch (e) {
@@ -39,9 +53,19 @@ export default function MostraBid() {
         }
         getBid();
     }, [])
+
+   function mostraBid(bid){
+       if(bid.message === "Bid negado"){
+           return ( <div></div> )
+       }else{
+       return  <Chip bid={bid} />
+       }
+   }
     return (
         <>
-            <Chip bid={bid} />
+        {
+           mostraBid(bid)
+        }
         </>
     )
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { cores } from '../../globalcss/Cores';
 
 export const Menu = styled.nav`
-    position: fixed;
+  position: fixed;
   bottom: 0;
   width: 100%;
   background-color: ${cores.pretoMenu};
@@ -11,6 +11,9 @@ export const Menu = styled.nav`
   overflow-y: hidden;
   white-space: nowrap;
   height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .navLink 
 {
@@ -19,7 +22,7 @@ export const Menu = styled.nav`
   text-align: center;
   text-decoration: none;
   padding: 3px;
-  width: 120px;
+  width: 140px;
   height: 40px;
   font-size: calc(10px + 2vmin);
 

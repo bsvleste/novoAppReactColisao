@@ -1,32 +1,41 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
+import { MdCheckCircle,MdCancel } from "react-icons/md";
 const Contagem = ({ qtdBid }) => (
     <>
+    
         <div className="row teste">
             {
                 qtdBid.map((qtd, index) => {
+                    let chekIsTrue = 0;
+                    if(qtd._id){
+                        chekIsTrue = "check"
+                    }else{
+                        chekIsTrue = "dont"
+                    }
                     return (
                         <Fragment key={index} >
                             {{
                                 check:
-                                    <div className='col-4'>
-                                        <span className="check"  >
-                                            <i className="fa fa-check-circle fa-2x"></i>
+                                <div className='col-4'>
+                                        <span className="check">
+                                            <MdCheckCircle size={25}/>
                                             {qtd.count}
                                         </span>
                                     </div>
                                 , dont:
-                                    <div className='col-4'>
+                                <div className='col-4'>
                                         <span className="DontCheck" >
-                                            <i className="fa fa-times-circle fa-2x"></i>
+                                        <MdCancel size={25}/>
                                             {qtd.count}
                                         </span>
                                     </div>
-                            }[qtd._id]}
+                            }[chekIsTrue]}
                         </Fragment>
                     );
                 })
             }
         </div>
+  
     </>
 );
 export default Contagem;

@@ -80,12 +80,13 @@ export const FormularioResultado = (props) => {
 
     useEffect(() => {
         const config = {
-            headers: { 'Authorization': "Bearer " + localStorage.getItem('token') }
+            headers: { 'Authorization': "Bearer " + localStorage.getItem('isAdm') }
         }
         async function updateResultadoJogo() {
             if (props.props) {
+               
                 setLoading(false);
-                const { data } = await Api.get(`/placar/editar/${props.props}`, config)
+                const { data } = await Api.get(`rotasAdm/editar/${props.props}`, config)
                 state.segColisao = data.segundo.colisao
                 state.segAdv = data.segundo.adversario
                 state.priColisao = data.primeiro.colisao
@@ -113,7 +114,7 @@ export const FormularioResultado = (props) => {
     async function salva(e) {
         e.preventDefault();
         const config = {
-            headers: { 'Authorization': "Bearer " + localStorage.getItem('token') }
+            headers: { 'Authorization': "Bearer " + localStorage.getItem('isAdm') }
         }
         if (props.props) {
             let res = {
@@ -128,7 +129,7 @@ export const FormularioResultado = (props) => {
                     adversario: state.priAdv
                 }
             }
-            await Api.post('/placar/update', res, config)
+            await Api.post('rotasAdm/update', res, config)
                 .then(response => {
                     setDataJogo('');
                     state.segColisao = 0
@@ -137,6 +138,12 @@ export const FormularioResultado = (props) => {
                     state.priAdv = 0
                     console.log(state);
                     zeraState();
+                    setTimeout(                        
+                        actions({
+                            type: 'setModal',
+                            playload: !estadoModal
+                        }),200
+                        )
                 }).catch(error => {
                     console.log(error);
                 });
@@ -152,7 +159,7 @@ export const FormularioResultado = (props) => {
                     adversario: state.priAdv
                 }
             }
-            await Api.post('/placar/criaPlacar', res, config)
+            await Api.post('rotasAdm/criaPlacar', res, config)
                 .then(response => {
                     zeraState();
                     state.segColisao = 0
@@ -161,6 +168,12 @@ export const FormularioResultado = (props) => {
                     state.priAdv = 0
                     console.log(state);
                     setDataJogo('');
+                    setTimeout(                        
+                        actions({
+                            type: 'setModal',
+                            playload: !estadoModal
+                        }),200
+                        )
                 }).catch(error => {
                     console.log(error);
                 });

@@ -21,13 +21,11 @@ class CriaUsuario extends Component {
         e.preventDefault();
         
         let userDataSend = {
-            userData: {
                 nome: this.state.nome,
                 email: this.state.email,
                 senha: this.state.senha,
-            }
         }
-        await Api.post('/auth/create',userDataSend)
+        await Api.post('auth/create',userDataSend)
             .then(response => {
                 console.log(response);
                 if (response.data.success) {

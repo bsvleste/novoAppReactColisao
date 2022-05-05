@@ -89,6 +89,7 @@ export const CardMain = styled.div`
 `;
 export const MainCard = styled.div`
     width: 290px;
+    margin-bottom: 80px;
 `;
 export const Quadro = styled.div`
     height: 110px;

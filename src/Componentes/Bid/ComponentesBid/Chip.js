@@ -1,11 +1,16 @@
 import React from 'react';
 import { ListaBid,IconCheck } from '../BidStyle';
-
+import { MdCheckCircle,MdCancel } from "react-icons/md";
 export default function Chip({bid}) {
     return (
         <>
             {bid.map((nome, index) => {
                 let nomes = nome.usuario.nome.split(' ');
+                if(nome.bid ){
+                    nomes.bid = "check"
+                }else{
+                    nomes.bid = "dont"
+                }
                 return (
                     <ListaBid key={index} >
                         <div className="iconesBid">
@@ -13,13 +18,13 @@ export default function Chip({bid}) {
                             {{
                                 check:
                                 <IconCheck check='check'>
-                                        <i>$</i>
+                                       <MdCheckCircle size={24}/>
                                 </IconCheck>
                                 , dont: 
                                 <IconCheck>
-                                        <i>X</i>
+                                       <MdCancel size={24}/>
                                 </IconCheck>
-                            }[nome.bid]}
+                            }[nomes.bid]}
                         </div>
                     </ListaBid>
                 )

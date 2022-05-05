@@ -21,7 +21,7 @@ const Header = (auth) => (
                 <p>BID</p>
             </div>
         </NavLink>
-        {auth.auth &&
+        {/* {auth.auth &&
             <NavLink
                 className="navLink"
                 to="/registro">
@@ -39,7 +39,7 @@ const Header = (auth) => (
                     <p>Mensalidade</p>
                 </div>
             </NavLink>
-        }
+        } */}
         <NavLink
             className="navLink"
             to="/login"

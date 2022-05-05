@@ -5,6 +5,7 @@ import { ButtonRg } from '../BidStyle';
 import ContextBid from '../store/contextBid';
 
 export default function RespostaBid() {
+  
     const {estadoModal, actions} = useContext(ContextBid);
     
     function modalEstado(){

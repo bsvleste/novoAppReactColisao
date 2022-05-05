@@ -23,10 +23,10 @@ class Login extends Component {
     handlerSubmit = (e) => {
         e.preventDefault();
         let userDataSend = {
-            userData: {
+            
                 email: this.state.email,
                 senha: this.state.senha,
-            }
+           
         }
         this.setState({ isLoading: true }, async () => {
             await Api.post('auth/login', userDataSend)
@@ -42,6 +42,7 @@ class Login extends Component {
                         })
                         localStorage.setItem('token', response.data.token);
                         localStorage.setItem('usuario', JSON.stringify(response.data.usuario));
+                        
                         if (response.data.isAdm) {
                             localStorage.setItem('isAdm', response.data.isAdm);
                         }
@@ -106,14 +107,14 @@ class Login extends Component {
 
                     }{isLoading ? '' :
                         <>
-                            <LoginH1>Login</LoginH1>
+                            <LoginH1>Login</LoginH1>                            
                             <LoginForm onSubmit={this.handlerSubmit}>
                                 <LoginLabel htmlFor='email'>Email</LoginLabel>
                                 <InputLogin type='email' id="email" placeholder="Digite seu email" onChange={this.handlerEmail} />
                                 <LoginLabel htmlFor='senha'>Senha</LoginLabel>
                                 <InputLogin type='password' id="sennha" placeholder="Digite sua senha" onChange={this.handlerSenha} />
                                 <ButtonLogin>Enviar</ButtonLogin>
-                                <LinkLogin href='/cadastro'>Cadastar jogadores</LinkLogin>
+                                <LinkLogin href='/cadastro'>Cadastar Jogadores</LinkLogin>
                             </LoginForm>
                         </>
                     }

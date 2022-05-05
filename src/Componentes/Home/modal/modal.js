@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
 import ContextHome from '../store/contextHome';
-import useGlobalHome from '../store/useGlobalHome';
 import { SegundoQuadro, ContainerButton, EditaResultado, ButtonResultado,  Cards, CardHeader, Texto, TextoData, TextoH3, TextoH4, CardMain, MainCard, Quadro, Resultado, Img } from '../HomeStyle';
 import { Cabecalho,Main } from '../../../globalcss/ComponeteGlobal';
 import Api from '../../../Services/Api';
@@ -15,7 +14,7 @@ export default function Modal() {
     const [jogos, setJogos] = useState([]);
     const [editarJogo, setEditarJogo] = useState();
     const [is_Adm, useIsAdm] = useState('');
-    const local = 'http://localhost:3001';
+    const local = 'http://192.168.15.72:3333';
     const remoto = 'https://backendcolisao.herokuapp.com';
 
     useEffect(() => {
@@ -26,7 +25,8 @@ export default function Modal() {
     useEffect(() => {
         function listaPlacar() {
             const config = {
-                headers: { 'Authorization': "Bearer " + localStorage.getItem('token') }
+                headers: {                    
+                     'Authorization': `Bearer${localStorage.getItem('token')}` }
             }
             //const io = socket('https://backendcolisao.herokuapp.com', config);
             //const io = socket('http://10.60.16.153:3001', config);
@@ -40,7 +40,7 @@ export default function Modal() {
             const config = {
                 headers: { 'Authorization': "Bearer " + localStorage.getItem('token') }
             }
-            const response = await Api.get('/publicas/placar', config);
+            const response = await Api.get('placar/', config);
             setJogos(response.data);
         }
         listaPlacar();
@@ -66,15 +66,26 @@ export default function Modal() {
         setEditarJogo();
     }
     async function deletar(res) {
-        let data = format(new Date(res.data), "dd 'de' MMMM", { locale: pt })
+        try{
 
-        if (window.confirm(`Deletar o Placar do dia ${data}`)) {
-
-            const config = {
-                headers: { 'Authorization': "Bearer " + localStorage.getItem('token') }
+            let data = format(new Date(res.data), "dd 'de' MMMM", { locale: pt })
+            
+            if (window.confirm(`Deletar o Placar do dia ${data}`)) {
+                
+                const config = {
+                    headers: { 'Authorization': "Bearer " + localStorage.getItem('isAdm') }
+                }
+                let {_id} = res;
+                await Api.post(`rotasAdm/deleta/${_id}`,{}, config).then(resp=>{
+                    console.log(resp.data);
+                })  
+                .catch(error=>{
+                      console.log(error);
+                
+                  });;
             }
-            let {_id} = res;
-            await Api.delete(`/placar/deletar/${_id}`, config);
+        }catch(err){
+            console.log(err)
         }
     }
     return (
